@@ -1,10 +1,12 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 const registerUser = asyncHandler(async (req,res) =>{
     try {
         const { name, username, password, dob,profile, gender} = req.body;
+        console.log(name, username);
         if(!name || !username || !password){
             res.status(400);
             throw new Error("Please fill all the fields");
@@ -17,14 +19,13 @@ const registerUser = asyncHandler(async (req,res) =>{
           }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        // const status = 'inactive';
-        const friendlist = 'null';
+        const friendlist = null;
         const user = new User({ name, username, password: hashedPassword, dob, profile, gender, friendlist});
         await user.save();
         res.status(201).send('User created successfully');
       } catch (error) {
         console.error(error);
-        res.status(500).send('Server Error');
+        res.status(500).send(error.message);
       }
 });
 

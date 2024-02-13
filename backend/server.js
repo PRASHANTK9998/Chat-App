@@ -20,10 +20,10 @@ app.use(cors()); // Apply CORS middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 // Error Handling Middleware
 app.use(errorHandler);
-app.use(notFound);
+// app.use(notFound);
 
 // Routes
-app.use("/", userRoutes);
+app.use("/users", userRoutes);
 
 
 
