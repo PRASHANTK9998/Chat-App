@@ -56,4 +56,18 @@ const authUser =asyncHandler(async(req,res)=>{
       }
 });
 
-module.exports = {registerUser,authUser};
+const countActiveUser =  asyncHandler(async(req, res) => {
+  try{
+    const user =await User.find({status : 'active'});
+    const randomIndex = Math.floor(Math.random() * user.length);
+    res.json(user[randomIndex]);
+  }
+  catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
+ 
+
+});
+
+module.exports = {registerUser,authUser, countActiveUser};
