@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect('mongodb://localhost:27017/chat-app', {
-      
+    const conn = await mongoose.connect('mongodb+srv://CDACProject:projectCDAC@chat-app.ejmv9fv.mongodb.net/?retryWrites=true&w=majority', {
+
     });
 
     console.log(`MongoDB Connected: ${conn.connection.host}`);
