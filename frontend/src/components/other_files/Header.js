@@ -76,7 +76,7 @@ function Header() {
         },
       };
 
-      const { data } = await axios.get(`http://localhost:5000/users?search=${search}`, config);
+      const { data } = await axios.get(`/users?search=${search}`, config);
 
       setLoading(false);
       setSearchResult(data);
@@ -103,8 +103,8 @@ function Header() {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post(`http://localhost:5000/chat`, { userId }, config);
-    //   console.log(data);
+      const { data } = await axios.post(`/chat`, { userId }, config);
+      // console.log(data);
     //   setChats(["asdasd"]);
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
       setSelectedChat(data);
@@ -208,10 +208,10 @@ function Header() {
             {loading ? (
               <ChatLoading />
             ) : (
-              searchResult?.map((data) => (
+              searchResult?.map((user) => (
                 <UserListItem
-                  key={data._id}
-                  user={data}
+                  key={user._id}
+                  user={user}
                   handleFunction={() => accessChat(user._id)}
                 />
               ))

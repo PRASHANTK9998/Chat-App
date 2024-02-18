@@ -15,6 +15,7 @@ import ScrollableChat from "./ScrollableChat";
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./other_files/UpdateGroupChatModal";
 import { ChatState } from "../context/ChatProvider";
+// const ENDPOINT = "https://chat-app-fiuv.onrender.com"
 const ENDPOINT = "http://localhost:5000"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
 var socket, selectedChatCompare;
 
@@ -43,7 +44,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `http://localhost:5000/message/${selectedChat._id}`,
+        `/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -74,7 +75,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "http://localhost:5000/message",
+          "/message",
           {
             content: newMessage,
             chatId: selectedChat,
