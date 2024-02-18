@@ -56,7 +56,7 @@ const authUser =asyncHandler(async(req,res)=>{
         }
         user.status = 'active';
         await user.save();
-        const token = jwt.sign({ userId: user._id }, 'secret');
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
         res.json({
             _id: user._id,
             name: user.name,
