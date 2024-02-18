@@ -3,6 +3,20 @@ const User = require("../models/userModel");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
+const allUsers = asyncHandler(async (req, res) => {
+  const keyword = req.query.search
+    ? {
+        $or: [
+          { name: { $regex: req.query.search, $options: "i" } },
+          { username: { $regex: req.query.search, $options: "i" } },
+        ],
+      }
+    : {};
+
+  const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
+  res.send(users);
+});
+
 const registerUser = asyncHandler(async (req,res) =>{
     try {
         const { name, username, password, dob,profile, gender} = req.body;
@@ -46,9 +60,11 @@ const authUser =asyncHandler(async(req,res)=>{
         res.json({
             _id: user._id,
             name: user.name,
+            username:user.username,
             profile: user.profile,
             gender: user.gender,
             status:user.status,
+            isAdmin: user.isAdmin,
             token:token });
       } catch (error) {
         console.error(error);
@@ -56,4 +72,4 @@ const authUser =asyncHandler(async(req,res)=>{
       }
 });
 
-module.exports = {registerUser,authUser};
+module.exports = {registerUser,authUser,allUsers};
