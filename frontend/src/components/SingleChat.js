@@ -15,8 +15,8 @@ import ScrollableChat from "./ScrollableChat";
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./other_files/UpdateGroupChatModal";
 import { ChatState } from "../context/ChatProvider";
-// const ENDPOINT = "https://chat-app-fiuv.onrender.com"
-const ENDPOINT = "http://localhost:5000"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
+const ENDPOINT = "https://chat-app-fiuv.onrender.com" // -> After deployment
+// const ENDPOINT = "http://localhost:5000"; 
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
