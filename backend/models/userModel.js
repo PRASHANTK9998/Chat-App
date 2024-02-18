@@ -41,7 +41,11 @@ const userSchema = mongoose.Schema(
         enum:["male", "female"]
     },
     status: { type: String, enum: ['active', 'inactive'], default: 'inactive' },
-    friendlist: [{type: mongoose.Schema.Types.ObjectId, ref:"User"}]
+    isAdmin: {
+        type: Boolean,
+        required: true,
+        default: false,
+      },
     },
     { timestamps: true }
     );

@@ -15,8 +15,7 @@ root.render(
       <ChakraProvider>
       <App />
       </ChakraProvider>
-    </ChatProvider>
-    
+    </ChatProvider>  
   </BrowserRouter>
 );
 

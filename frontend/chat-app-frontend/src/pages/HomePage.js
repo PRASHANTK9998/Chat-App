@@ -42,7 +42,7 @@ function Homepage() {
         <Text fontSize="4xl" fontFamily="Work sans" bgGradient='linear(to-l, #7928CA, #FF0080)'
   bgClip='text'
   >
-          Anonymous-Chat-App
+          Real Time Chat App
         </Text>
       </Box>
       <Box w="100%" p={4} borderRadius="lg" borderWidth="1px" boxShadow='outline'>

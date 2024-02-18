@@ -1,13 +1,24 @@
 import React from 'react'
-import { ChatState } from '../context/ChatProvider'
-
+import Header from '../components/other_files/Header';
+import { Box } from '@chakra-ui/layout';
+import ChatBox from '../components/ChatBox';
+import MyChats from '../components/MyChats';
 
 const ChatPage = () => {
-  const { user } = ChatState();
 
   return (
-    <div>
-      chat page
+    <div style={{ width: "100%" }}>
+      {<Header />}
+      <Box
+        display={'flex'}
+        justifyContent={'space-between'}
+        w={"100%"}
+        h={'91.5vh'}
+        p={'10px'}
+      >
+         {<MyChats />}
+         {<ChatBox />}
+      </Box>
     </div>
   )
 }
