@@ -128,7 +128,8 @@ function Header() {
         display="flex"
         justifyContent="space-between"
         alignItems="center"
-        bg="white"
+        bg="#d1d1e0"
+        borderColor="#d1d1e0"
         w="100%"
         p="5px 10px 5px 10px"
         borderWidth="5px"
@@ -137,13 +138,13 @@ function Header() {
         <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
           <Button variant="ghost" onClick={onOpen}>
             <i className="fas fa-search"></i>
-            <Text d={{ base: "none", md: "flex" }} px={4}>
+            <Text display={{ base: "none", md: "flex" }} px={4} my={1}>
               Search User
             </Text>
           </Button>
         </Tooltip>
-        <Text fontSize="2xl" fontFamily="Work sans">
-          RealTime Chat App
+        <Text fontSize="25px" fontFamily="Work sans" fontWeight={800} my={1}>
+          Real Time Chat App
         </Text>
         <div>
           <Menu>

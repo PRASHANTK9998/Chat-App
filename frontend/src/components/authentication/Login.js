@@ -106,17 +106,16 @@ const Login = () => {
         onClick={submitHandler}
         isLoading={loading}
         bgColor={"primary"}
+        
       >
         Login
       </Button>
       <Button
-        variant="solid"
-        colorScheme="red"
+        // variant="solid"
+        // colorScheme="green"
         width="100%"
-        bgGradient='linear(to-r, teal.500, green.500)'
-        _hover={{
-        bgGradient: 'linear(to-r, red.500, yellow.500)',
-        }}
+        // bgColor={"primary"}
+        bgColor="#90CDF4"
         onClick={() => {
           setUsername("annonymous");
           setPassword("123456");
