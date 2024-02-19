@@ -23,21 +23,18 @@ function Homepage() {
   }, [navigate]);
 
   return (
-    <Container maxW="xl" centerContent  bgGradient={[
-      'linear(to-tr, teal.300, yellow.400)',
-      'linear(to-t, blue.200, teal.500)',
-      'linear(to-b, orange.100, purple.300)',
-    ]}>
+    <Container maxW="xl" centerContent bg >
       <Box
-        d="flex"
+        fontWeight={800}
+        display="flex"
         justifyContent="center"
         p={3}
-        bgGradient='linear(to-r, gray.300, yellow.400, pink.200)'
         w="100%"
         m="40px 0 15px 0"
         borderRadius="lg"
         borderWidth="1px"
         boxShadow='outline'
+        backdropFilter="blur(8px)"
       >
         <Text fontSize="4xl" fontFamily="Work sans" bgGradient='linear(to-l, #7928CA, #FF0080)'
   bgClip='text'
@@ -45,11 +42,11 @@ function Homepage() {
           Real Time Chat App
         </Text>
       </Box>
-      <Box w="100%" p={4} borderRadius="lg" borderWidth="1px" boxShadow='outline'>
-        <Tabs isFitted variant="soft-rounded">
+      <Box w="100%" p={4} borderRadius="lg" borderWidth="1px" boxShadow='outline' backdropFilter="blur(8px)">
+        <Tabs isFitted variant="soft-rounded" textColor="#E2E8F0">
           <TabList mb="1em">
-            <Tab>Login</Tab>
-            <Tab>Sign Up</Tab>
+            <Tab textColor="white">Login</Tab>
+            <Tab  textColor="white">Sign Up</Tab>
           </TabList>
           <TabPanels>
             <TabPanel>
